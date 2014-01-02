@@ -1,0 +1,57 @@
+<%- model_class = Staff -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:first_name) %>:</strong></dt>
+  <dd><%= @staff.first_name %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:middle_name) %>:</strong></dt>
+  <dd><%= @staff.middle_name %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:last_name) %>:</strong></dt>
+  <dd><%= @staff.last_name %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:address_line_1) %>:</strong></dt>
+  <dd><%= @staff.address_line_1 %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:address_line_2) %>:</strong></dt>
+  <dd><%= @staff.address_line_2 %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:city) %>:</strong></dt>
+  <dd><%= @staff.city %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:county) %>:</strong></dt>
+  <dd><%= @staff.county %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:post_code) %>:</strong></dt>
+  <dd><%= @staff.post_code %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:ni) %>:</strong></dt>
+  <dd><%= @staff.ni %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:dob) %>:</strong></dt>
+  <dd><%= @staff.dob %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:start_date) %>:</strong></dt>
+  <dd><%= @staff.start_date %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:end_date) %>:</strong></dt>
+  <dd><%= @staff.end_date %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:tel_number) %>:</strong></dt>
+  <dd><%= @staff.tel_number %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:mobile_number) %>:</strong></dt>
+  <dd><%= @staff.mobile_number %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:next_of_kin) %>:</strong></dt>
+  <dd><%= @staff.next_of_kin %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:next_of_kin_tel) %>:</strong></dt>
+  <dd><%= @staff.next_of_kin_tel %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:sort_code) %>:</strong></dt>
+  <dd><%= @staff.sort_code %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:account_number) %>:</strong></dt>
+  <dd><%= @staff.account_number %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:bank) %>:</strong></dt>
+  <dd><%= @staff.bank %></dd>
+</dl>
+
+<div class="form-actions">
+  <%= link_to t('.back', :default => t("helpers.links.back")),
+              staffs_path, :class => 'btn'  %>
+  <%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_staff_path(@staff), :class => 'btn' %>
+  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              staff_path(@staff),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>
+</div>

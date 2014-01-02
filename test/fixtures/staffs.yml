@@ -1,0 +1,43 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  first_name: MyString
+  middle_name: MyString
+  last_name: MyString
+  address_line_1: MyString
+  address_line_2: MyString
+  city: MyString
+  county: MyString
+  post_code: MyString
+  ni: MyString
+  dob: 2013-12-28
+  start_date: 2013-12-28
+  end_date: 2013-12-28
+  tel_number: MyString
+  mobile_number: MyString
+  next_of_kin: MyString
+  next_of_kin_tel: MyString
+  sort_code: 
+  account_number: 
+  bank: MyString
+
+two:
+  first_name: MyString
+  middle_name: MyString
+  last_name: MyString
+  address_line_1: MyString
+  address_line_2: MyString
+  city: MyString
+  county: MyString
+  post_code: MyString
+  ni: MyString
+  dob: 2013-12-28
+  start_date: 2013-12-28
+  end_date: 2013-12-28
+  tel_number: MyString
+  mobile_number: MyString
+  next_of_kin: MyString
+  next_of_kin_tel: MyString
+  sort_code: 
+  account_number: 
+  bank: MyString
