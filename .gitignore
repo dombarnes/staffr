@@ -16,3 +16,5 @@
 /tmp
 
 config/initializers/secret_token.rb
+db/seeds.rb
+db/seeds.rb

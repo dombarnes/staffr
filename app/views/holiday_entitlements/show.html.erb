@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Staff:</strong>
+  <%= @holiday_entitlement.staff_id %>
+</p>
+
+<p>
+  <strong>Holiday year start:</strong>
+  <%= @holiday_entitlement.holiday_year_start %>
+</p>
+
+<p>
+  <strong>Holiday days:</strong>
+  <%= @holiday_entitlement.holiday_days %>
+</p>
+
+<%= link_to 'Edit', edit_holiday_entitlement_path(@holiday_entitlement) %> |
+<%= link_to 'Back', holiday_entitlements_path %>

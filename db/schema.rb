@@ -11,7 +11,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131228145001) do
+ActiveRecord::Schema.define(version: 20140102182104) do
+
+  create_table "holiday_entitlements", force: true do |t|
+    t.integer  "staff_id"
+    t.date     "holiday_year_start"
+    t.decimal  "holiday_days"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "holidays", force: true do |t|
+    t.string   "staff_id"
+    t.date     "start_date"
+    t.date     "end_date"
+    t.string   "holiday_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "staffs", force: true do |t|
     t.string   "first_name"
@@ -30,8 +47,8 @@ ActiveRecord::Schema.define(version: 20131228145001) do
     t.string   "mobile_number"
     t.string   "next_of_kin"
     t.string   "next_of_kin_tel"
-    t.integer  "sort_code"
-    t.integer  "account_number"
+    t.string   "sort_code"
+    t.string   "account_number"
     t.string   "bank"
     t.datetime "created_at"
     t.datetime "updated_at"

@@ -1,7 +1,8 @@
 Staffr::Application.routes.draw do
-  resources :staffs
-
-  root 'staffs#index'
+    resources :holidays
+    resources :holiday_entitlements
+    resources :staffs
+    root 'home#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

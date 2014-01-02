@@ -1,0 +1,44 @@
+<%= form_for(@holiday) do |f| %>
+  <% if @holiday.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@holiday.errors.count, "error") %> prohibited this holiday from being saved:</h2>
+
+      <ul>
+      <% @holiday.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="control-group">
+    <%= f.label :staff_id %><br>
+    <div class="controls">
+      <%= f.collection_select(:staff_id, Staff.all, :id, :full_name) %>
+    </div>
+  </div>
+  <div class="field">
+    <%= f.label :start_date %><br>
+    <div class="controls">
+      <%= f.text_field :start_date, 'data-behaviour' => 'datepicker','placeholder' => 'dd-mm-yyyy' %>
+    </div>
+  </div>
+  <div class="field">
+    <%= f.label :end_date %><br>
+    <div class="controls">
+    <%= f.text_field :end_date, 'data-behaviour' => 'datepicker', 'placeholder' => 'dd-mm-yyyy' %>
+  </div>
+    <div class="field">
+    <%= f.label :holiday_type %><br>
+    <div class="controls">
+    <%= f.select :holiday_type, Holiday::HOLIDAY_TYPES, default: "Annual Leave" %>
+  </div>
+  </div>
+
+  <div class="form-actions">
+    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                holidays_path, :class => 'btn' %>
+  </div>
+
+<% end %>

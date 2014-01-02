@@ -1,4 +1,13 @@
 <%= form_for @staff, :html => { :class => 'form-horizontal' } do |f| %>
+  <% if @staff.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@staff.errors.count, "error") %> stopped this company from being saved:</h2>
+
+      <ul>
+      <% @staff.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    <% end %>
   <div class="control-group">
     <%= f.label :first_name, :class => 'control-label' %>
     <div class="controls">
@@ -38,7 +47,7 @@
   <div class="control-group">
     <%= f.label :county, :class => 'control-label' %>
     <div class="controls">
-      <%= f.text_field :county, :class => 'text_field' %>
+      <%= f.select :county, Staff::COUNTY_LIST, :prompt => "Please select...", :class => '' %>
     </div>
   </div>
   <div class="control-group">
@@ -56,19 +65,19 @@
   <div class="control-group">
     <%= f.label :dob, :class => 'control-label' %>
     <div class="controls">
-      <%= f.text_field :dob %>
+      <%= f.text_field :dob, 'data-behaviour' => 'datepicker', 'placeholder' => "dd-mm-yyyy" %>
     </div>
   </div>
   <div class="control-group">
     <%= f.label :start_date, :class => 'control-label' %>
     <div class="controls">
-      <%= f.text_field :start_date, :as => 'datepicker' %>
+      <%= f.text_field :start_date, 'data-behaviour' => 'datepicker', 'placeholder' => "dd-mm-yyyy" %>
     </div>
   </div>
   <div class="control-group">
     <%= f.label :end_date, :class => 'control-label' %>
     <div class="controls">
-      <%= f.text_field :end_date %>
+      <%= f.text_field :end_date, 'data-behaviour' => 'datepicker', 'placeholder' => "dd-mm-yyyy" %>
     </div>
   </div>
   <div class="control-group">

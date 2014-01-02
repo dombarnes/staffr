@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  staff_id: MyString
+  _start_date: 2014-01-02
+  end_date: 2014-01-02
+  holiday_type: MyString
+
+two:
+  staff_id: MyString
+  _start_date: 2014-01-02
+  end_date: 2014-01-02
+  holiday_type: MyString

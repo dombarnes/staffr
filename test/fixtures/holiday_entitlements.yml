@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  staff_id: 
+  holiday_year_start: 2014-01-02
+  holiday_days: 9.99
+
+two:
+  staff_id: 
+  holiday_year_start: 2014-01-02
+  holiday_days: 9.99
