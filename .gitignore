@@ -6,6 +6,7 @@
 
 # Ignore bundler config.
 /.bundle
+.DS_Strore
 
 # Ignore the default SQLite database.
 /db/*.sqlite3
@@ -16,5 +17,4 @@
 /tmp
 
 config/initializers/secret_token.rb
-db/seeds.rb
 db/seeds.rb
