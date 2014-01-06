@@ -6,15 +6,20 @@
 
 # Ignore bundler config.
 /.bundle
-.DS_Strore
+.powrc
 
 # Ignore the default SQLite database.
 /db/*.sqlite3
 /db/*.sqlite3-journal
+*.sql
+*.sql.gz
 
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
+.DS_Store
 
 config/initializers/secret_token.rb
 db/seeds.rb
+public/uploads/*
+public/assets

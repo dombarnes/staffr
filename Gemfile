@@ -12,6 +12,17 @@ gem "twitter-bootstrap-rails", :git => 'http://github.com/seyhunak/twitter-boots
 # gem 'therubyracer', platforms: :ruby
 gem 'bootstrap-datepicker-rails'
 
+#for later
+# gem 'cancan'
+# gem "devise", ">= 2.2.3"
+# gem 'devise-async', '0.7.0'
+# gem "devise_invitable", ">= 1.1.5"
+# gem "rolify"
+# gem "factory_girl_rails", ">= 4.2.0", :group => [:development, :test]
+# gem "compass-rails", ">= 1.0.3", :group => :assets
+gem "rspec-rails", ">= 2.14.1", :group => [:development, :test]
+gem "capybara", ">= 2.0.3", :group => :test
+
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
 
