@@ -6,6 +6,8 @@ class StaffsController < ApplicationController
   end
 
   def show
+    @holiday_allowance = HolidayEntitlement.find(params[:id])
+    @holiday_used = @holiday_allowance
   end
 
   def new

@@ -26,15 +26,16 @@
   <div class="field">
     <%= f.label :end_date %><br>
     <div class="controls">
-    <%= f.text_field :end_date, 'data-behaviour' => 'datepicker', 'placeholder' => 'dd-mm-yyyy' %>
+      <%= f.text_field :end_date, 'data-behaviour' => 'datepicker', 'placeholder' => 'dd-mm-yyyy' %>
+    </div>
   </div>
-    <div class="field">
+  <div class="field">
     <%= f.label :holiday_type %><br>
     <div class="controls">
-    <%= f.select :holiday_type, Holiday::HOLIDAY_TYPES, default: "Annual Leave" %>
+      <%= f.select :holiday_type, Holiday::HOLIDAY_TYPES, default: "Annual Leave" %>
+    </div>
   </div>
-  </div>
-
+  <br>
   <div class="form-actions">
     <%= f.submit nil, :class => 'btn btn-primary' %>
     <%= link_to t('.cancel', :default => t("helpers.links.cancel")),

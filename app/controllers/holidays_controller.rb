@@ -50,11 +50,6 @@ class HolidaysController < ApplicationController
     end
   end
 
-def holiday_length
-  if @holiday.end_date = @holiday.start_date
-
-  end
-end
 
 private
     # Use callbacks to share common setup or constraints between actions.

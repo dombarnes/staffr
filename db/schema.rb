@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140102182104) do
+ActiveRecord::Schema.define(version: 20140527212348) do
 
   create_table "holiday_entitlements", force: true do |t|
     t.integer  "staff_id"
@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 20140102182104) do
     t.decimal  "holiday_days"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.datetime "holiday_year_end"
   end
 
   create_table "holidays", force: true do |t|

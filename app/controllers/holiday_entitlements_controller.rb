@@ -57,6 +57,6 @@ class HolidayEntitlementsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def holiday_entitlement_params
-      params.require(:holiday_entitlement).permit(:staff_id, :holiday_year_start, :holiday_days)
+      params.require(:holiday_entitlement).permit(:staff_id, :holiday_year_start, :holiday_year_end, :holiday_days)
     end
 end

@@ -7,6 +7,7 @@
     <tr>
       <th><%= model_class.human_attribute_name(:staff_id) %></th>
       <th><%= model_class.human_attribute_name(:holiday_year_start) %></th>
+      <th><%= model_class.human_attribute_name(:holiday_year_end) %></th>
       <th><%= model_class.human_attribute_name(:holiday_days) %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
@@ -14,13 +15,14 @@
   <tbody>
     <% @holiday_entitlements.each do |holiday_entitlement| %>
       <tr>
-        <td><%= holiday_entitlement.staff_id %></td>
-        <td><%= holiday_entitlement.holiday_year_start %></td>
+        <td><%= Staff.find(holiday_entitlement.staff_id).full_name %></td>
+        <td><%= holiday_entitlement.holiday_year_start.strftime("%d/%m/%Y") %></td>
+        <td><%= holiday_entitlement.holiday_year_end.strftime("%d/%m/%Y") %></td>
         <td><%= holiday_entitlement.holiday_days %></td>
         <td>
-      <%= link_to t('.show', :default => t("helpers.links.show")), holiday_entitlements_path(holiday_entitlement), :class =>
-      'btn btn-info' %>
-          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+      <%= link_to t('.show', :default => t("helpers.links.show")),
+          holiday_entitlements_path(holiday_entitlement), :class => 'btn btn-info' %>
+      <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_holiday_entitlement_path(holiday_entitlement), :class => 'btn btn-warning' %>
           <!-- <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
                       holiday_entitlement_path(holiday_entitlement),
