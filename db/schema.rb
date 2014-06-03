@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140527212348) do
+ActiveRecord::Schema.define(version: 20140603144542) do
 
   create_table "holiday_entitlements", force: true do |t|
     t.integer  "staff_id"
@@ -53,6 +53,7 @@ ActiveRecord::Schema.define(version: 20140527212348) do
     t.string   "bank"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "staff_no"
   end
 
 end

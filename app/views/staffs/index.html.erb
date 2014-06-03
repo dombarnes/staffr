@@ -5,6 +5,7 @@
 <table class="table table-striped">
   <thead>
     <tr>
+      <th><%= model_class.human_attribute_name(:staff_no) %></th>
       <th><%= model_class.human_attribute_name(:first_name) %></th>
       <th><%= model_class.human_attribute_name(:middle_name) %></th>
       <th><%= model_class.human_attribute_name(:last_name) %></th>
@@ -14,11 +15,16 @@
   <tbody>
     <% @staffs.each do |staff| %>
       <tr>
+        <% if staff.staff_no? %>
+          <td><%= staff.staff_no %></td>
+        <% else %>
+          <td>none set</td>
+        <% end %>
         <td><%= staff.first_name %></td>
         <td><%= staff.middle_name %></td>
         <td><%= staff.last_name %></td>
         <td>
-			<%= link_to t('.show', :default => t("helpers.links.show")), staff_path(staff), :class => 
+			<%= link_to t('.show', :default => t("helpers.links.show")), staff_path(staff), :class =>
 			'btn btn-info' %>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_staff_path(staff), :class => 'btn btn-warning' %>

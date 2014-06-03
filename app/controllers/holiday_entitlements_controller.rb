@@ -6,6 +6,8 @@ class HolidayEntitlementsController < ApplicationController
   end
 
   def show
+    @staff = Staff.find(params[:id])
+    # @staff.full_name = @staff.first_name + " " + @staff.last_name
   end
 
   def new

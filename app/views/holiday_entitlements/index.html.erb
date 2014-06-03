@@ -21,7 +21,7 @@
         <td><%= holiday_entitlement.holiday_days %></td>
         <td>
       <%= link_to t('.show', :default => t("helpers.links.show")),
-          holiday_entitlements_path(holiday_entitlement), :class => 'btn btn-info' %>
+          holiday_entitlement_path(holiday_entitlement), :class => 'btn btn-info' %>
       <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_holiday_entitlement_path(holiday_entitlement), :class => 'btn btn-warning' %>
           <!-- <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
