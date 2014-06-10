@@ -5,9 +5,11 @@
 
 <dl class="dl-horizontal">
   <dt><strong><%= model_class.human_attribute_name(:staff_id) %>:</strong></dt>
-  <dd><%= @staff.first_name %></dd>
+  <dd><%= @staff.full_name %></dd>
   <dt><strong><%= model_class.human_attribute_name(:holiday_year_start) %>:</strong></dt>
-  <dd><%= @holiday_entitlement.holiday_year_start %></dd>
+  <dd><%= @holiday_entitlement.holiday_year_start.strftime("%d-%b-%Y") %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:holiday_year_end) %>:</strong></dt>
+  <dd><%= @holiday_entitlement.holiday_year_end.strftime("%d-%b-%Y") %></dd>
   <dt><strong><%= model_class.human_attribute_name(:holiday_days) %>:</strong></dt>
   <dd><%= @holiday_entitlement.holiday_days %></dd>
 </dl>

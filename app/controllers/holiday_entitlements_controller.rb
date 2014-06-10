@@ -6,7 +6,7 @@ class HolidayEntitlementsController < ApplicationController
   end
 
   def show
-    @staff = Staff.find(params[:id])
+    @staff = Staff.find_by(:id => @holiday_entitlement.staff_id)
     # @staff.full_name = @staff.first_name + " " + @staff.last_name
   end
 
@@ -22,7 +22,7 @@ class HolidayEntitlementsController < ApplicationController
 
     respond_to do |format|
       if @holiday_entitlement.save
-        format.html { redirect_to @holiday_entitlement, notice: 'Holiday entitlement was successfully created.' }
+        format.html { redirect_to holiday_entitlements_path, notice: 'Holiday entitlement was successfully created.' }
         format.json { render action: 'show', status: :created, location: @holiday_entitlement }
       else
         format.html { render action: 'new' }
@@ -34,7 +34,7 @@ class HolidayEntitlementsController < ApplicationController
   def update
     respond_to do |format|
       if @holiday_entitlement.update(holiday_entitlement_params)
-        format.html { redirect_to @holiday_entitlement, notice: 'Holiday entitlement was successfully updated.' }
+        format.html { redirect_to holiday_entitlements_path, notice: 'Holiday entitlement was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }

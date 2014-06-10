@@ -11,7 +11,6 @@ gem "twitter-bootstrap-rails", :git => 'http://github.com/seyhunak/twitter-boots
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 gem 'bootstrap-datepicker-rails'
-
 #for later
 # gem 'cancan'
 # gem "devise", ">= 2.2.3"
@@ -28,6 +27,7 @@ gem 'turbolinks'
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
+
 
 group :development do
   gem 'rails_layout'

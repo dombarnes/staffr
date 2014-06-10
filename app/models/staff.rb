@@ -1,4 +1,7 @@
 class Staff < ActiveRecord::Base
+	has_many :holiday_entitlements
+	has_many :holidays
+
   validates :first_name, :last_name, :dob, :address_line_1, :post_code, :start_date, :sort_code, :account_number, on: :update, presence: { :message => "%{value} fields can't be blank" }
   validates_uniqueness_of :ni, :on => :create, :message => "NI Number must be unique"
   validates_length_of :ni, :is => 9
@@ -11,6 +14,5 @@ COUNTY_LIST = ["Avon", "Bedfordshire", "Berkshire", "Borders", "Buckinghamshire"
 	def full_name
 		[first_name, last_name].join(' ')
 	end
-
 
 end

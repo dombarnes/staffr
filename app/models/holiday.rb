@@ -1,4 +1,5 @@
 class Holiday < ActiveRecord::Base
+	belongs_to :staff
 	validates_presence_of [:staff_id, :start_date, :end_date, :holiday_type]
 
 
