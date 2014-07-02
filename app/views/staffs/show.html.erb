@@ -20,11 +20,11 @@
   <dt><strong><%= model_class.human_attribute_name(:county) %>:</strong></dt>
   <dd><%= @staff.county %></dd>
   <dt><strong><%= model_class.human_attribute_name(:post_code) %>:</strong></dt>
-  <dd><%= @staff.post_code %></dd>
+  <dd><%= @staff.post_code.upcase %></dd>
   <dt><strong><%= model_class.human_attribute_name(:ni) %>:</strong></dt>
   <dd><%= @staff.ni %></dd>
   <dt><strong><%= model_class.human_attribute_name(:dob) %>:</strong></dt>
-  <dd><%= @staff.dob %></dd>
+  <dd><%= @staff.dob.strftime("%d %b %Y") %></dd>
 
   <h4>Employment Information</h4>
   <dt><strong><%= model_class.human_attribute_name(:start_date) %>:</strong></dt>
@@ -50,28 +50,26 @@
   <dt><strong><%= model_class.human_attribute_name(:bank) %>:</strong></dt>
   <dd><%= @staff.bank %></dd>
 
+  <div class="form-actions">
+    <%= link_to t('.back', :default => t("helpers.links.back")),
+                staffs_path, :class => 'btn'  %>
+    <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                edit_staff_path(@staff), :class => 'btn btn-info' %>
+    <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                staff_path(@staff),
+                :method => 'delete',
+                :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                :class => 'btn btn-danger' %>
+  </div>
+
+
   <h4>Holiday Information</h4>
   <dt><strong>Current Holiday Entitlement</strong></dt>
-  <dd><%= current_holiday_entitlement(@staff) %></dd>
+  <dd><%= current_holiday_entitlement_id(@staff).holiday_days %></dd>
   <dt>Current Available Holiday</dt>
   <dd><%= holiday_available(@staff) %></dd>
 </dl>
 
 <%= render :partial => 'shared/holiday_list' %>
 
-<div class="form-actions">
-  <%= link_to t('.back', :default => t("helpers.links.back")),
-              staffs_path, :class => 'btn'  %>
-  <%= link_to t('.edit', :default => t("helpers.links.edit")),
-              edit_staff_path(@staff), :class => 'btn btn-info' %>
-  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
-              staff_path(@staff),
-              :method => 'delete',
-              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
-              :class => 'btn btn-danger' %>
-</div>
-
-
     <%= debug @staff %>
-    <%= debug @holiday_allowance %>
-    <%= debug @holidays %>

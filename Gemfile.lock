@@ -8,6 +8,14 @@ GIT
       rails (>= 3.1)
       railties (>= 3.1)
 
+GIT
+  remote: https://github.com/bokmann/business_time.git
+  revision: 24ad90e7a115c66dc60fc4247a03e4d8a31a413e
+  specs:
+    business_time (0.7.3)
+      activesupport (>= 3.1.0)
+      tzinfo
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -148,6 +156,7 @@ PLATFORMS
 DEPENDENCIES
   bootstrap-datepicker-rails
   bootstrap-sass (~> 3.0.3.0)
+  business_time!
   capybara (>= 2.0.3)
   coffee-rails (~> 4.0.0)
   jbuilder (~> 1.2)

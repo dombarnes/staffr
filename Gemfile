@@ -8,6 +8,7 @@ gem 'coffee-rails', '~> 4.0.0'
 gem 'jquery-rails'
 gem 'bootstrap-sass', '~> 3.0.3.0'
 gem "twitter-bootstrap-rails", :git => 'http://github.com/seyhunak/twitter-bootstrap-rails.git'
+gem 'business_time', :git => 'https://github.com/bokmann/business_time.git'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 gem 'bootstrap-datepicker-rails'

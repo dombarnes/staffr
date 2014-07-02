@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140610190938) do
+ActiveRecord::Schema.define(version: 20140630154754) do
 
   create_table "holiday_entitlements", force: true do |t|
     t.integer  "staff_id"
@@ -23,9 +23,9 @@ ActiveRecord::Schema.define(version: 20140610190938) do
   end
 
   create_table "holidays", force: true do |t|
-    t.string   "staff_id"
-    t.date     "start_date"
-    t.date     "end_date"
+    t.integer  "staff_id",     limit: 255
+    t.datetime "start_date"
+    t.datetime "end_date"
     t.string   "holiday_type"
     t.datetime "created_at"
     t.datetime "updated_at"

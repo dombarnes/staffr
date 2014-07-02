@@ -14,13 +14,6 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require bootstrap
-//= require bootstrap-datepicker
+//= require bootstrap-datepicker/core
 //= require_tree .
 
-
-$('#sandbox-container .input-append.date').datepicker({
-    format: "dd/mm/yyyy",
-    todayBtn: true,
-    autoclose: true,
-    todayHighlight: true
-});
