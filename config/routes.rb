@@ -1,19 +1,15 @@
 Staffr::Application.routes.draw do
+    root 'home#index'
+    resources :leave_types, only: [:index, :show]
     resources :holidays
     resources :holiday_entitlements
     resources :staffs
 
-    root 'home#index'
-
     namespace :admin do
-      # Directs /admin/products/* to Admin::ProductsController
-      # (app/controllers/admin/products_controller.rb)
       resources :leave_types
     end
 
     get '/admin' => 'admin#index'
-    get '/admin/leave_type' => 'admin#leave_types#index'
-
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
