@@ -15,4 +15,7 @@ COUNTY_LIST = ["Avon", "Bedfordshire", "Berkshire", "Borders", "Buckinghamshire"
 		[first_name, last_name].join(' ')
 	end
 
+	default_scope { order('last_name') }
+	scope :active, -> { where(:end_date => nil) }
+	scope :all_staff, -> { order('last_name', 'first_name')}
 end

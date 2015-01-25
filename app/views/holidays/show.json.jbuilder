@@ -1,1 +1,1 @@
-json.extract! @holiday_entitlement, :id, :staff_id, :holiday_year_start, :holiday_days, :created_at, :updated_at
+json.extract! @holiday, :id, :staff_id, :start_date, :end_date,, :leave_type_id, :created_at, :updated_at

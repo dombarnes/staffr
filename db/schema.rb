@@ -11,12 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140702113121) do
-
-  create_table "admins", force: true do |t|
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
+ActiveRecord::Schema.define(version: 20140703090448) do
 
   create_table "holiday_entitlements", force: true do |t|
     t.integer  "staff_id"
@@ -28,12 +23,12 @@ ActiveRecord::Schema.define(version: 20140702113121) do
   end
 
   create_table "holidays", force: true do |t|
-    t.integer  "staff_id",     limit: 255
+    t.integer  "staff_id",      limit: 255
     t.datetime "start_date"
     t.datetime "end_date"
-    t.string   "holiday_type"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "leave_type_id"
   end
 
   create_table "leave_types", force: true do |t|

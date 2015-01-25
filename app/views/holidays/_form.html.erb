@@ -32,7 +32,7 @@
   <div class="field">
     <%= f.label :holiday_type %><br>
     <div class="controls">
-      <%= f.select :holiday_type, Holiday::HOLIDAY_TYPES, default: "Annual Leave" %>
+      <%= f.collection_select(:leave_type_id, LeaveType.all, :id, :title) %>
     </div>
   </div>
   <br>

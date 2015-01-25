@@ -59,7 +59,7 @@ private
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def holiday_params
-      params.require(:holiday).permit(:staff_id, :start_date, :end_date, :holiday_type)
+      params.require(:holiday).permit(:staff_id, :start_date, :end_date, :leave_type_id)
     end
 
 end

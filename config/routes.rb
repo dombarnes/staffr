@@ -1,15 +1,16 @@
 Staffr::Application.routes.draw do
     root 'home#index'
+    get '/admin' => 'admin#index'
+    get '/staff/all' => 'staffs#all'
+
     resources :leave_types, only: [:index, :show]
     resources :holidays
     resources :holiday_entitlements
-    resources :staffs
+    resources :staff, controller: 'staffs'
 
     namespace :admin do
       resources :leave_types
     end
-
-    get '/admin' => 'admin#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -5,13 +5,15 @@
 
 <dl class="dl-horizontal">
   <dt><strong><%= model_class.human_attribute_name(:staff_id) %>:</strong></dt>
-  <dd><%= @holiday.staff_id %></dd>
+  <dd><%= full_name(@holiday.staff_id) %></dd>
   <dt><strong><%= model_class.human_attribute_name(:start_date) %>:</strong></dt>
-  <dd><%= @holiday.start_date %></dd>
+  <dd><%= @holiday.start_date.strftime("%d/%m/%Y") %></dd>
   <dt><strong><%= model_class.human_attribute_name(:end_date) %>:</strong></dt>
-  <dd><%= @holiday.end_date %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:holiday_type) %>:</strong></dt>
-  <dd><%= @holiday.holiday_type %></dd>
+  <dd><%= @holiday.end_date.strftime("%d/%m/%Y") %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:leave_type_id) %>:</strong></dt>
+  <dd><%= leave_type_name(@holiday.leave_type_id) %></dd>
+  <dt><strong>Length</strong></dt>
+  <dd><%= business_days_between(@holiday.start_date, @holiday.end_date) %></dd>
 </dl>
 
 <div class="form-actions">

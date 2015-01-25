@@ -5,6 +5,10 @@ class StaffsController < ApplicationController
     @staffs = Staff.all
   end
 
+  def all
+    @staffs = Staff.all_staff.all
+  end
+
   def show
     @holidays = Holiday.where(:staff_id => @staff.id)
     # @holiday_allowance = HolidayEntitlement.find(params[:id])

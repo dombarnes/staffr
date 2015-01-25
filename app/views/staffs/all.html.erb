@@ -2,6 +2,10 @@
 <div class="page-header">
   <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
 </div>
+<%= link_to t('Back to Active', :default => t('< Back to Active')),
+            staff_index_path,
+            :class => 'btn btn-primary' %>
+
 <table class="table table-striped">
   <thead>
     <tr>
@@ -13,7 +17,7 @@
     </tr>
   </thead>
   <tbody>
-    <% @staffs.active.each do |staff| %>
+    <% @staffs.all_staff.each do |staff| %>
       <tr>
         <% if staff.staff_no? %>
           <td><%= staff.staff_no %></td>
@@ -41,7 +45,4 @@
 
 <%= link_to t('.new', :default => t("helpers.links.new")),
             new_staff_path,
-            :class => 'btn btn-primary' %>
-<%= link_to t('.all', :default => t('View All >')),
-            staff_all_path,
             :class => 'btn btn-primary' %>
