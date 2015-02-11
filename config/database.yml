@@ -2,6 +2,9 @@ development:
   adapter: postgresql
   encoding: unicode
   database: staffr_development
+  pool: 5
+  username: staffr
+  password: staffr
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -10,6 +13,9 @@ test:
   adapter: postgresql
   encoding: unicode
   database: staffr_test
+  pool: 5
+  username: staffr
+  password: staffr
 
 production:
   adapter: postgresql

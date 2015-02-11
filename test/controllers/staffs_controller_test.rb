@@ -44,6 +44,6 @@ class StaffsControllerTest < ActionController::TestCase
       delete :destroy, id: @staff
     end
 
-    assert_redirected_to staffs_path
+    assert_redirected_to staff_path
   end
 end

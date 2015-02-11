@@ -16,11 +16,11 @@
 
 <div class="form-actions">
   <%= link_to t('.back', :default => t("helpers.links.back")),
-              holiday_entitlements_path, :class => 'btn'  %>
+              staff_holiday_entitlements_path, :class => 'btn'  %>
   <%= link_to t('.edit', :default => t("helpers.links.edit")),
-              edit_holiday_entitlement_path(@holiday_entitlement), :class => 'btn btn-info' %>
+              edit_staff_holiday_entitlement_path(@holiday_entitlement), :class => 'btn btn-info' %>
   <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
-              holiday_entitlements_path(@holiday_entitlement),
+              staff_holiday_entitlements_path(@holiday_entitlement),
               :method => 'delete',
               :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
               :class => 'btn btn-danger' %>

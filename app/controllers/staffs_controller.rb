@@ -24,10 +24,11 @@ class StaffsController < ApplicationController
 
   def create
     @staff = Staff.new(staff_params)
-
+    
     respond_to do |format|
       if @staff.save
         format.html { redirect_to @staff, notice: 'Staff was successfully created.' }
+        # TODO Now create a new holiday entitlement
         format.json { render action: 'show', status: :created, location: @staff }
       else
         format.html { render action: 'new' }

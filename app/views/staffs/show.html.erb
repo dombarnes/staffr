@@ -2,9 +2,28 @@
 <div class="page-header">
   <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
 </div>
-    <dl class="dl-horizontal">
+<dl class="dl-horizontal">
+
+  <div class="row">
+    <div class="col-md-3">
+      <div class="profile-photo"><img src='http://www.adtechnology.co.uk/images/UGM-default-user.png' alt="Full Name"></div>
+    </div>
+    <div class="col-md-9">
+      <h4><%= @staff.full_name %></h4>
+      <dt>Job Title</dt><dd></dd>
+      <dt>Employed since</dt><dd><%= @staff.start_date.strftime("%d/%m/%Y") %> (<%= length_of_service(@staff) %>)</dd>
+      <dt>Location</dt><dd></dd>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-3" role="complementary">
+      <%= render partial: 'staff_nav_links' %>
+    </div>
+
+    <div class="col-md-9">
       <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-12">
           <h4>Personal Information</h4>
           <dt><strong><%= model_class.human_attribute_name(:first_name) %>:</strong></dt>
           <dd><%= @staff.first_name %></dd>
@@ -26,9 +45,10 @@
           <dd><%= @staff.ni %></dd>
           <dt><strong><%= model_class.human_attribute_name(:dob) %>:</strong></dt>
           <dd><%= @staff.dob.strftime("%d %b %Y") %></dd>
+
           <h4>Employment Information</h4>
           <dt><strong><%= model_class.human_attribute_name(:start_date) %>:</strong></dt>
-          <dd><%= @staff.start_date.strftime("%d/%m/%Y") %></dd>
+          <dd><%= @staff.start_date.strftime("%d/%m/%Y") %> (<%= length_of_service(@staff) %>)</dd>
           <dt><strong><%= model_class.human_attribute_name(:end_date) %>:</strong></dt>
           <% if @staff.end_date? %>
               <dd><%= @staff.end_date.strftime("%d/%m/%Y") %></dd>
@@ -36,16 +56,10 @@
               <dd></dd>
           <% end %>
         </div>
-        <div class="col-md-4">
-          <h4>Bank Information</h4>
-          <dt><strong><%= model_class.human_attribute_name(:sort_code) %>:</strong></dt>
-          <dd><%= @staff.sort_code %></dd>
-          <dt><strong><%= model_class.human_attribute_name(:account_number) %>:</strong></dt>
-          <dd><%= @staff.account_number %></dd>
-          <dt><strong><%= model_class.human_attribute_name(:bank) %>:</strong></dt>
-          <dd><%= @staff.bank %></dd>
-        </div>
-        <div class="col-md-4">
+      </div>
+
+      <div class="row">
+        <div class="col-md-12">
           <h4>Contact Information</h4>
           <dt><strong><%= model_class.human_attribute_name(:tel_number) %>:</strong></dt>
           <dd><%= @staff.tel_number %></dd>
@@ -57,27 +71,79 @@
           <dd><%= @staff.next_of_kin_tel %></dd>
         </div>
       </div>
+
       <div class="row">
-        <div class="col-md-4">
-          <h4>Holiday Information</h4>
-          <dt><strong>Current Holiday Entitlement</strong></dt>
-          <dd><%= current_holiday_entitlement_id(@staff).try(:holiday_days) %></dd>
-          <dt>Current Available Holiday</dt>
-          <dd><%= holiday_available(@staff) %></dd>
+        <div class="col-md-12">
+          <h4>Bank Information</h4>
+          <dt><strong><%= model_class.human_attribute_name(:sort_code) %>:</strong></dt>
+          <dd><%= @staff.sort_code %></dd>
+          <dt><strong><%= model_class.human_attribute_name(:account_number) %>:</strong></dt>
+          <dd><%= @staff.account_number %></dd>
+          <dt><strong><%= model_class.human_attribute_name(:bank) %>:</strong></dt>
+          <dd><%= @staff.bank %></dd>
         </div>
       </div>
+
       <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-12 holiday">
+          <h4>Holiday Information</h4>
+          <% if !@staff.end_date.blank? %>
+            <dd>Not applicable for inactive staff members.</dd>
+          <% else %>
+            <% if current_holiday_entitlement_id(@staff).nil? %>
+              <dd>No current holiday entitlement found</dd>
+              <dt><%= link_to t('.new_holiday', :default => t("helpers.links.add_holiday_entitlement")),
+              new_staff_holiday_entitlement_path(@staff),
+              :class => 'btn btn-primary' %></dt>
+            <% else %>
+              <dt>Current Holiday Entitlement</dt>
+              <dd><%= current_holiday_entitlement_id(@staff).try(:holiday_days) %></dd>
+              <dt>Current Available Holiday</dt>
+              <dd><%= holiday_available(@staff) %></dd>
+            <% end %>
+            <dt><%= link_to t('.new', :default => t("helpers.links.manage_holiday_entitlement")),
+              holiday_entitlement_path(@staff),
+              :class => 'btn btn-primary' %></dt>
+          <% end %>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-12">
+          <h4>Holidays</h4>
+            <% if !@staff.end_date.blank? %>
+            <% else %>
+              <%= link_to t('.new', :default => t("helpers.links.new_holiday_entry")),
+              new_staff_holiday_path(@staff),
+              :class => 'btn btn-primary' %>
+            <% end %>
             <%= render :partial => 'shared/holiday_list' %>
           </div>
       </div>
+
+      <div class="row">
+        <div class="col-md-12">
+          <h4>Job Title and Salart</h4>
+          <dt><strong><%= model_class.human_attribute_name(:first_name) %>:</strong></dt>
+          <dd><%= @staff.first_name %></dd>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-12">
+          <h4>Section Template</h4>
+          <dt><strong><%= model_class.human_attribute_name(:first_name) %>:</strong></dt>
+          <dd><%= @staff.first_name %></dd>
+        </div>
+      </div>
+
       <div class="row">
         <div class="form-actions col-md-12">
-    <%= link_to t('.back', :default => t("helpers.links.back")),
+          <%= link_to t('.back', :default => t("helpers.links.back")),
                 staff_path, :class => 'btn'  %>
-    <%= link_to t('.edit', :default => t("helpers.links.edit")),
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
                 edit_staff_path(@staff), :class => 'btn btn-info' %>
-    <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
                 staff_path(@staff),
                 :method => 'delete',
                 :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
@@ -86,4 +152,3 @@
       </div>
 </dl>
 <%= debug @staff %>
-<%= debug holiday_available(@staff) %>

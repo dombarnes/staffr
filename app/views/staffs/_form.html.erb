@@ -1,13 +1,17 @@
-<%= form_for @staff, :html => { :class => 'form-horizontal' } do |f| %>
+<%= form_for (@staff) do |f| %>
   <% if @staff.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@staff.errors.count, "error") %> stopped this company from being saved:</h2>
+      <h2><%= pluralize(@staff.errors.count, "error") %> prevented this staff members details from being saved:</h2>
 
       <ul>
       <% @staff.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
       <% end %>
+    </ul>
     <% end %>
+  
+  <div id="personal" class="col-md-3">
+    <h2>Personal</h2>
   <div class="control-group">
     <%= f.label :first_name, :class => 'control-label' %>
     <div class="controls">
@@ -57,15 +61,26 @@
     </div>
   </div>
   <div class="control-group">
+    <%= f.label :dob, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :dob, 'data-behaviour' => 'datepicker', 'placeholder' => "dd-mm-yyyy" %>
+    </div>
+  </div>
+  <div class="control-group">
     <%= f.label :ni, :class => 'control-label' %>
     <div class="controls">
       <%= f.text_field :ni, :class => 'text_field' %>
     </div>
   </div>
+
+  </div><!-- //personal -->
+
+  <div id="company" class="col-md-3">
+    <h2>Employee Information</h2>
   <div class="control-group">
-    <%= f.label :dob, :class => 'control-label' %>
+    <%= f.label :staff_no, :class => 'control-label' %>
     <div class="controls">
-      <%= f.text_field :dob, 'data-behaviour' => 'datepicker', 'placeholder' => "dd-mm-yyyy" %>
+      <%= f.text_field :staff_no, :class => 'text-field' %>
     </div>
   </div>
   <div class="control-group">
@@ -104,6 +119,10 @@
       <%= f.text_field :next_of_kin_tel, :class => 'text_field' %>
     </div>
   </div>
+</div>
+
+  <div id="financial" class="col-md-3">
+    <h2>Financial</h2>
   <div class="control-group">
     <%= f.label :sort_code, :class => 'control-label' %>
     <div class="controls">
@@ -122,10 +141,10 @@
       <%= f.text_field :bank, :class => 'text_field' %>
     </div>
   </div>
+</div>
 
   <div class="form-actions">
     <%= f.submit nil, :class => 'btn btn-primary' %>
-    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
-                staff_path, :class => 'btn' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")), staff_path, :class => 'btn' %>
   </div>
 <% end %>

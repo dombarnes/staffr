@@ -1,7 +1,7 @@
 <%= form_for([:admin,@leave_type]) do |f| %>
   <% if @leave_type.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@leave_type.errors.count, "error") %> stopped this leave type from being saved:</h2>
+      <h2><%= pluralize(@leave_type.errors.count, "error") %> prevented this leave type from being saved:</h2>
 
       <ul>
       <% @leave_type.errors.full_messages.each do |msg| %>

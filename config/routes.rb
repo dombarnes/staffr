@@ -2,12 +2,15 @@ Staffr::Application.routes.draw do
     root 'home#index'
     get '/admin' => 'admin#index'
     get '/staff/all' => 'staffs#all'
+    # get '/staff' => 'staff#index', as: 'staffs'
 
     resources :leave_types, only: [:index, :show]
-    resources :holidays
+    resources :staff, controller: 'staffs', as: 'staff' do
+      resources :holiday_entitlements
+      resources :holidays  
+    end
+    resources :holidays  
     resources :holiday_entitlements
-    resources :staff, controller: 'staffs'
-
     namespace :admin do
       resources :leave_types
     end

@@ -1,7 +1,7 @@
-<%= form_for(@holiday_entitlement) do |f| %>
+<%= form_for([@staff, @holiday_entitlement]) do |f| %>
   <% if @holiday_entitlement.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@holiday_entitlement.errors.count, "error") %> prohibited this holiday_entitlement from being saved:</h2>
+      <h2><%= pluralize(@holiday_entitlement.errors.count, "error") %> prevents this holiday entitlement from being saved:</h2>
 
       <ul>
       <% @holiday_entitlement.errors.full_messages.each do |msg| %>

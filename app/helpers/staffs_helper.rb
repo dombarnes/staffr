@@ -1,7 +1,7 @@
 module StaffsHelper
 
-  def age
-    Date.today - :dob
+  def age staff
+    Date.today - staff.dob
   end
 
   def full_name(id)
@@ -10,7 +10,8 @@ module StaffsHelper
     full_name
   end
 
+  def length_of_service staff
+	distance_of_time_in_words(Date.today, staff.start_date)
+  end
+
 end
-
-
-# @items = Item.includes(:priorities).where('company_id = ? and approved = ?', @company.id, true).order("priorities.position ASC")
