@@ -1,8 +1,6 @@
 #!/bin/sh
 #
 # bootstrap
-#
-# TURN THIS MAC INTO A MUSIC STREAMING MACHINEEEEEEEEEE
 
 set -e
 

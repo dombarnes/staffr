@@ -27,8 +27,8 @@ Staff.create!(	first_name: 'John',
 				bank: 'Apple Bank'
 				)
 HolidayEntitlement.create!(	
-				staff_id: '1'
-				holiday_year_start: '2015-01-01'
-				holiday_year_end: '2015-12-31'
+				staff_id: '1',
+				holiday_year_start: '2015-01-01',
+				holiday_year_end: '2015-12-31',
 				holiday_days: '40'
 	)
