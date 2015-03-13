@@ -25,10 +25,19 @@ Staff.create!(	first_name: 'John',
 				sort_code: '112233',
 				account_number: '01234567',
 				bank: 'Apple Bank'
-				)
-HolidayEntitlement.create!(	
-				staff_id: '1',
-				holiday_year_start: '2015-01-01',
-				holiday_year_end: '2015-12-31',
-				holiday_days: '40'
-	)
+				HolidayEntitlement.create!(	
+								staff_id: '1',
+								holiday_year_start: '2015-01-01',
+								holiday_year_end: '2015-12-31',
+								holiday_days: '40'
+					)
+			)
+LeaveTypes.create![
+	{title: 'Annual Leave', paid: 'true' },
+	{title: 'Compassionate Leave', paid: 'true' },
+	{title: 'Maternity Leave', paid: 'true' },
+	{title: 'Paternity Leave', paid: 'true' },
+	{title: 'Sick Leave (Paid)', paid: 'true' },
+	{title: 'Sick Leave (Unpaid)', paid: 'false' },
+	{title: 'Time off in Lieu', paid: 'true' }
+]

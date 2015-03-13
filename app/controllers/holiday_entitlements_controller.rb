@@ -1,4 +1,4 @@
-class Admin::HolidayEntitlementsController < ApplicationController
+class HolidayEntitlementsController < ApplicationController
   before_action :set_holiday_entitlement, only: [:show, :edit, :update, :destroy]
 
   def index

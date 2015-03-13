@@ -6,6 +6,10 @@
             staff_index_path,
             :class => 'btn btn-primary' %>
 
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_staff_path,
+            :class => 'btn btn-primary' %>
+
 <table class="table table-striped">
   <thead>
     <tr>
@@ -42,7 +46,3 @@
     <% end %>
   </tbody>
 </table>
-
-<%= link_to t('.new', :default => t("helpers.links.new")),
-            new_staff_path,
-            :class => 'btn btn-primary' %>

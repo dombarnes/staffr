@@ -1,150 +1,166 @@
-<%= form_for (@staff) do |f| %>
+<%= form_for @staff do |f| %>
   <% if @staff.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@staff.errors.count, "error") %> prevented this staff members details from being saved:</h2>
+      <h2><%= pluralize(@staff.errors.count, "error") %> prevented this staff member's details from being saved:</h2>
 
       <ul>
       <% @staff.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
       <% end %>
-    </ul>
+      </ul>
     <% end %>
-  
-  <div id="personal" class="col-md-3">
-    <h2>Personal</h2>
-  <div class="control-group">
-    <%= f.label :first_name, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :first_name, :class => 'text_field' %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :middle_name, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :middle_name, :class => 'text_field' %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :last_name, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :last_name, :class => 'text_field' %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :address_line_1, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :address_line_1, :class => 'text_field' %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :address_line_2, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :address_line_2, :class => 'text_field' %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :city, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :city, :class => 'text_field' %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :county, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.select :county, Staff::COUNTY_LIST, :prompt => "Please select...", :class => '' %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :post_code, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :post_code, :class => 'text_field' %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :dob, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :dob, 'data-behaviour' => 'datepicker', 'placeholder' => "dd-mm-yyyy" %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :ni, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :ni, :class => 'text_field' %>
-    </div>
-  </div>
+  <div class="row">    
+    <div id="personal" class="col-md-3">
+      <h2>Personal</h2>
+      <div class="control-group">
+        <%= f.file_field :profile_photo %>
+      </div>
+      <div class="control-group">
+        <%= f.label :first_name, :class => 'control-label' %>
+        <div class="controls">
+          <%= f.text_field :first_name, :class => 'text_field' %>
+        </div>
+      </div>
+      <div class="control-group">
+        <%= f.label :middle_name, :class => 'control-label' %>
+        <div class="controls">
+          <%= f.text_field :middle_name, :class => 'text_field' %>
+        </div>
+      </div>
+      <div class="control-group">
+        <%= f.label :last_name, :class => 'control-label' %>
+        <div class="controls">
+          <%= f.text_field :last_name, :class => 'text_field' %>
+        </div>
+      </div>
+      <div class="control-group">
+        <%= f.label :address_line_1, :class => 'control-label' %>
+        <div class="controls">
+          <%= f.text_field :address_line_1, :class => 'text_field' %>
+        </div>
+      </div>
+      <div class="control-group">
+        <%= f.label :address_line_2, :class => 'control-label' %>
+        <div class="controls">
+          <%= f.text_field :address_line_2, :class => 'text_field' %>
+        </div>
+      </div>
+      <div class="control-group">
+        <%= f.label :city, :class => 'control-label' %>
+        <div class="controls">
+          <%= f.text_field :city, :class => 'text_field' %>
+        </div>
+      </div>
+      <div class="control-group">
+        <%= f.label :county, :class => 'control-label' %>
+        <div class="controls">
+          <%= f.select :county, Staff::COUNTY_LIST, :prompt => "Please select...", :class => '' %>
+        </div>
+      </div>
+      <div class="control-group">
+        <%= f.label :post_code, :class => 'control-label' %>
+        <div class="controls">
+          <%= f.text_field :post_code, :class => 'text_field' %>
+        </div>
+      </div>
+      <div class="control-group">
+        <%= f.label :dob, :class => 'control-label' %>
+        <div class="controls">
+          <%= f.text_field :dob, 'data-behaviour' => 'datepicker', 'placeholder' => 'dd-mm-yyyy', 'class' => 'datepicker' %>
+        </div>
+      </div>
+      <div class="control-group">
+        <%= f.label :ni, :class => 'control-label' %>
+        <div class="controls">
+          <%= f.text_field :ni, :class => 'text_field' %>
+        </div>
+      </div>
+    </div><!-- /personal -->
 
-  </div><!-- //personal -->
+    <div id="company" class="col-md-3">
+      <h2>Employee Information</h2>
+      <div class="control-group">
+        <%= f.label :staff_no, :class => 'control-label' %>
+        <div class="controls">
+          <%= f.text_field :staff_no, :class => 'text-field' %>
+        </div>
+      </div>
+      <div class="control-group">
+        <%= f.label :start_date, :class => 'control-label' %>
+        <div class="controls">
+          <%= f.text_field :start_date, 'data-behaviour' => 'datepicker', 'placeholder' => 'dd-mm-yyyy', 'class' => 'datepicker' %>
+        </div>
+      </div>
+      <div class="control-group">
+        <%= f.label :end_date, :class => 'control-label' %>
+        <div class="controls">
+          <%= f.text_field :end_date, 'data-behaviour' => 'datepicker', 'placeholder' => 'dd-mm-yyyy', 'class' => 'datepicker' %>
+        </div>
+      </div>
+      <div class="control-group">
+        <%= f.label :job_title, :class => 'control-label' %>
+        <div class="controls">
+          <%= f.text_field :job_title, :class => 'text-field' %>
+        </div>
+      </div>
+      <div class="control-group">
+        <%= f.label :location, :class => 'control-label' %>
+        <div class="controls">
+          <%= f.text_field :location, :class => 'text-field' %>
+        </div>
+      </div>
+      <div class="control-group">
+        <%= f.label :tel_number, :class => 'control-label' %>
+        <div class="controls">
+          <%= f.text_field :tel_number, :class => 'text_field' %>
+        </div>
+      </div>
+      <div class="control-group">
+        <%= f.label :mobile_number, :class => 'control-label' %>
+        <div class="controls">
+          <%= f.text_field :mobile_number, :class => 'text_field' %>
+        </div>
+      </div>
+      <div class="control-group">
+        <%= f.label :next_of_kin, :class => 'control-label' %>
+        <div class="controls">
+          <%= f.text_field :next_of_kin, :class => 'text_field' %>
+        </div>
+      </div>
+      <div class="control-group">
+        <%= f.label :next_of_kin_tel, :class => 'control-label' %>
+        <div class="controls">
+          <%= f.text_field :next_of_kin_tel, :class => 'text_field' %>
+        </div>
+      </div>
+    </div>
 
-  <div id="company" class="col-md-3">
-    <h2>Employee Information</h2>
-  <div class="control-group">
-    <%= f.label :staff_no, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :staff_no, :class => 'text-field' %>
+    <div id="financial" class="col-md-3">
+      <h2>Financial</h2>
+      <div class="control-group">
+        <%= f.label :sort_code, :class => 'control-label' %>
+        <div class="controls">
+          <%= f.text_field :sort_code, :class => 'text_field' %>
+        </div>
+      </div>
+      <div class="control-group">
+        <%= f.label :account_number, :class => 'control-label' %>
+        <div class="controls">
+          <%= f.text_field :account_number, :class => 'text_field' %>
+        </div>
+      </div>
+      <div class="control-group">
+        <%= f.label :bank, :class => 'control-label' %>
+        <div class="controls">
+          <%= f.text_field :bank, :class => 'text_field' %>
+        </div>
+      </div>
     </div>
   </div>
-  <div class="control-group">
-    <%= f.label :start_date, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :start_date, 'data-behaviour' => 'datepicker', 'placeholder' => "dd-mm-yyyy" %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :end_date, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :end_date, 'data-behaviour' => 'datepicker', 'placeholder' => "dd-mm-yyyy" %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :tel_number, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :tel_number, :class => 'text_field' %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :mobile_number, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :mobile_number, :class => 'text_field' %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :next_of_kin, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :next_of_kin, :class => 'text_field' %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :next_of_kin_tel, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :next_of_kin_tel, :class => 'text_field' %>
-    </div>
-  </div>
-</div>
-
-  <div id="financial" class="col-md-3">
-    <h2>Financial</h2>
-  <div class="control-group">
-    <%= f.label :sort_code, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :sort_code, :class => 'text_field' %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :account_number, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :account_number, :class => 'text_field' %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :bank, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :bank, :class => 'text_field' %>
-    </div>
-  </div>
-</div>
-
-  <div class="form-actions">
-    <%= f.submit nil, :class => 'btn btn-primary' %>
-    <%= link_to t('.cancel', :default => t("helpers.links.cancel")), staff_path, :class => 'btn' %>
-  </div>
+  <div clas="row">
+    <div class="col-md-6"></div>
+    <div class="col-md-6">
+      <div class="form-actions">
+        <%= f.submit nil, :class => 'btn btn-primary' %>
+        <%= link_to t('.cancel', :default => t("helpers.links.cancel")), staff_index_path, :class => 'btn' %>
 <% end %>

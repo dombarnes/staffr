@@ -2,7 +2,7 @@
   <% if @holiday.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@holiday.errors.count, "error") %> prevented this holiday entry from being saved:</h2>
-
+      
       <ul>
       <% @holiday.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
@@ -26,7 +26,7 @@
   <div class="field">
     <%= f.label :end_date %><br>
     <div class="controls">
-      <%= f.text_field :end_date, 'data-behaviour' => 'datepicker', 'placeholder' => 'dd-mm-yyyy' %>
+      <%= f.text_field :end_date, 'data-behaviour' => 'datepicker', 'placeholder' => 'dd-mm-yyyy', 'class' => 'datepicker' %>
     </div>
   </div>
   <div class="field">
@@ -41,5 +41,4 @@
     <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
                 holidays_path, :class => 'btn' %>
   </div>
-
 <% end %>

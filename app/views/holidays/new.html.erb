@@ -1,5 +1,10 @@
-<h1>New holiday_entitlement</h1>
+
+<%- model_class = Staff -%>
+<div class="page-header">
+  <h1>New Holiday Entry</h1>
+  <h1><%=t '.title', :default => [:'helpers.titles.new', 'New %{model} Entry'], :model => model_class.model_name.human.titleize %></h1>
+</div>
 
 <%= render 'form' %>
 
-<%= link_to 'Back', staff_holiday_entitlements_path %>
+<%= link_to 'Back', holidays_path %>

@@ -13,6 +13,7 @@ gem 'jquery-rails'
 gem 'twitter-bootstrap-rails', github: 'seyhunak/twitter-bootstrap-rails'
 gem 'business_time', github: 'bokmann/business_time'
 gem 'bootstrap-datepicker-rails'
+gem 'paperclip', "~> 4.2"
 
 # For Heroku
 gem 'puma'
