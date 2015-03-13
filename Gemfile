@@ -16,7 +16,7 @@ gem 'bootstrap-datepicker-rails'
 
 # For Heroku
 gem 'puma'
-gem 'bootstrap-sass', '~> 3.3.1'
+# gem 'bootstrap-sass'
 
 #for later
 # gem 'cancan'
