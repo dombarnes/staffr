@@ -16,7 +16,7 @@ Run
 to install required dependencies.  
 
 ## Database creation
-Run 
+Run
     > rake db:create  
     > rake db:migrate  
 to initialise the database  

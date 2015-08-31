@@ -1,15 +1,13 @@
 <%- model_class = Staff -%>
 <div class="page-header">
-  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+  <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
 </div>
-<%= link_to t('Back to Active', :default => t('< Back to Active')),
-            staff_index_path,
-            :class => 'btn btn-primary' %>
-
-<%= link_to t('.new', :default => t("helpers.links.new")),
+<%= link_to t('.new', :default => t("Add New Employee")),
             new_staff_path,
             :class => 'btn btn-primary' %>
-
+<%= link_to t('View Active', :default => t('View Active')),
+            staff_index_path,
+            :class => 'btn btn-primary' %>
 <table class="table table-striped">
   <thead>
     <tr>

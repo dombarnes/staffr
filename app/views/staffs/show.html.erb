@@ -18,7 +18,7 @@
       <dt>Location</dt>
       <dd><%= @staff.location %></dd>
     </div>
-  </div>
+  </div> <!-- /row -->
   
   <div class="row">
     <div class="col-md-3" role="complementary">
@@ -39,7 +39,7 @@
     </div>
 
     <div class="col-md-9">
-      <div class="row">
+      <div class="row" personal-info>
         <div class="col-md-12">
           <h4>Personal Information</h4>
           <dt><strong><%= model_class.human_attribute_name(:first_name) %>:</strong></dt>
@@ -72,10 +72,15 @@
           <% else %>
               <dd></dd>
           <% end %>
+          <h4>Job Title and Salary</h4>
+          <dt><strong><%= model_class.human_attribute_name(:job_title) %>:</strong></dt>
+          <dd><%= @staff.job_title %></dd>
+          <dt><strong><%= model_class.human_attribute_name(:location) %>:</strong></dt>
+          <dd><%= @staff.location %></dd>
         </div>
       </div>
 
-      <div class="row">
+      <div class="row" contact-info>
         <div class="col-md-12">
           <h4>Contact Information</h4>
           <dt><strong><%= model_class.human_attribute_name(:tel_number) %>:</strong></dt>
@@ -89,7 +94,7 @@
         </div>
       </div>
 
-      <div class="row">
+      <div class="row" bank-info>
         <div class="col-md-12">
           <h4>Bank Information</h4>
           <dt><strong><%= model_class.human_attribute_name(:sort_code) %>:</strong></dt>
@@ -101,7 +106,7 @@
         </div>
       </div>
 
-      <div class="row">
+      <div class="row" holiday-info>
         <div class="col-md-12 holiday">
           <h4>Holiday Information</h4>
           <% if !@staff.end_date.blank? %>
@@ -125,7 +130,7 @@
         </div>
       </div>
 
-      <div class="row">
+      <div class="row" holidays>
         <div class="col-md-12">
           <h4>Holidays</h4>
             <% if !@staff.end_date.blank? %>
@@ -136,16 +141,6 @@
             <% end %>
             <%= render :partial => 'shared/holiday_list' %>
           </div>
-      </div>
-
-      <div class="row">
-        <div class="col-md-12">
-          <h4>Job Title and Salary</h4>
-          <dt><strong><%= model_class.human_attribute_name(:job_title) %>:</strong></dt>
-          <dd><%= @staff.job_title %></dd>
-          <dt><strong><%= model_class.human_attribute_name(:location) %>:</strong></dt>
-          <dd><%= @staff.job_title %></dd>
-        </div>
       </div>
 
       <div class="row">

@@ -11,7 +11,7 @@ module StaffsHelper
   end
 
   def length_of_service staff
-	distance_of_time_in_words(Date.today, staff.start_date)
+	   distance_of_time_in_words(Date.current, staff.start_date)
   end
 
 end

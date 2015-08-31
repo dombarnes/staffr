@@ -7,37 +7,38 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 # Heroku Dev Seed Data
-Staff.create!(	first_name: 'John',
-				middle_name: '',
-				last_name: 'Appleseed',
-				address_line_1: '1 Infinite Loop',
-				address_line_2: '',
-				city: 'Cupertino',
-				county: 'London',
-				post_code: 'W1 1AP',
-				ni: 'AP123456C',
-				dob: '1984-01-24',
-				start_date: '2000-01-02',
-				mobile_number: '',
-				tel_number: '',
-				next_of_kin: 'Jane Appleseed',
-				next_of_kin_tel: '',
-				sort_code: '112233',
-				account_number: '01234567',
-				bank: 'Apple Bank'
-				HolidayEntitlement.create!(	
-								staff_id: '1',
-								holiday_year_start: '2015-01-01',
-								holiday_year_end: '2015-12-31',
-								holiday_days: '40'
-					)
-			)
+Staff.create!(	
+	first_name: 'John',
+	middle_name: '',
+	last_name: 'Appleseed',
+	address_line_1: '1 Infinite Loop',
+	address_line_2: '',
+	city: 'Cupertino',
+	county: 'London',
+	post_code: 'W1 1AP',
+	ni: 'AP123456C',
+	dob: '1984-01-24',
+	start_date: '2000-01-02',
+	mobile_number: '',
+	tel_number: '',
+	next_of_kin: 'Jane Appleseed',
+	next_of_kin_tel: '',
+	sort_code: '112233',
+	account_number: '01234567',
+	bank: 'Apple Bank'
+)
+HolidayEntitlement.create!(	
+	staff_id: '1',
+	holiday_year_start: '2015-01-01',
+	holiday_year_end: '2015-12-31',
+	holiday_days: '40'
+)
 LeaveTypes.create![
-	{title: 'Annual Leave', paid: 'true' },
-	{title: 'Compassionate Leave', paid: 'true' },
-	{title: 'Maternity Leave', paid: 'true' },
-	{title: 'Paternity Leave', paid: 'true' },
-	{title: 'Sick Leave (Paid)', paid: 'true' },
-	{title: 'Sick Leave (Unpaid)', paid: 'false' },
-	{title: 'Time off in Lieu', paid: 'true' }
+	(title: 'Annual Leave', paid: 'true' ),
+	(title: 'Compassionate Leave', paid: 'true' ),
+	(title: 'Maternity Leave', paid: 'true' ),
+	(title: 'Paternity Leave', paid: 'true' ),
+	(title: 'Sick Leave (Paid)', paid: 'true' ),
+	(title: 'Sick Leave (Unpaid)', paid: 'false' ),
+	(title: 'Time off in Lieu', paid: 'true')
 ]

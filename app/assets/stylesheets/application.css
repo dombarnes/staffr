@@ -16,5 +16,10 @@
 main {
   background-color: #fff;
   padding-top :50px;
+  min-height:700px;
+  margin-top: 20px;
  }
  
+ .center {
+ 	text-align:center;
+ }
