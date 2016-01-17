@@ -5,7 +5,7 @@ class Staff < ActiveRecord::Base
 
 	has_attached_file :profile_photo, :styles => { :medium => "198x198>", :thumb => "45x45>" }, :default_url => "/images/:style/default-user.png"
   	validates_attachment_content_type :profile_photo, :content_type => /\Aimage\/.*\Z/
-
+  validates_presence_of :start_date, on: :create
 	validates :first_name, :last_name, :dob, :address_line_1, :post_code, :start_date, :sort_code, :account_number, on: :update, presence: { :message => "%{value} fields can't be blank" }
 	validates_uniqueness_of :ni, :on => :create, :message => "NI Number must be unique"
 	validates_length_of :ni, :is => 9

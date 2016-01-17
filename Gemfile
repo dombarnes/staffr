@@ -41,7 +41,7 @@ gem 'turbolinks'
 # gem 'jbuilder', '~> 1.2'
 
 group :development do
-  gem'web-console', '~> 2.0'
+  gem 'web-console', '~> 2.0'
   gem 'rails_layout'
   gem 'quiet_assets'
   gem 'rails-erd'

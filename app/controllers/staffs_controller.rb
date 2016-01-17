@@ -28,6 +28,7 @@ class StaffsController < ApplicationController
     
     respond_to do |format|
       if @staff.save
+        UserMailer.new_user(@staff).deliver
         format.html { redirect_to @staff, notice: 'Staff was successfully created.' }
         # TODO Now create a new holiday entitlement
         format.json { render action: 'show', status: :created, location: @staff }
@@ -66,7 +67,7 @@ class StaffsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def staff_params
-      params.require(:staff).permit(:first_name, :middle_name, :last_name, :address_line_1, 
+      params.require(:staff).permit(:first_name, :middle_name, :last_name, :email, :address_line_1, 
         :address_line_2, :city, :county, :post_code, :ni, :dob, :start_date, :end_date, 
         :staff_no, :job_title, :location, :profile_photo, :tel_number, :mobile_number, 
         :next_of_kin, :next_of_kin_tel, :sort_code, :account_number, :bank)

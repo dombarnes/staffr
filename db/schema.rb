@@ -11,12 +11,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150313211847) do
+ActiveRecord::Schema.define(version: 20160117192411) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "holiday_entitlements", force: true do |t|
+  create_table "holiday_entitlements", force: :cascade do |t|
     t.integer  "staff_id"
     t.datetime "holiday_year_start"
     t.decimal  "holiday_days"
@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(version: 20150313211847) do
     t.datetime "holiday_year_end"
   end
 
-  create_table "holidays", force: true do |t|
+  create_table "holidays", force: :cascade do |t|
     t.integer  "staff_id"
     t.datetime "start_date"
     t.datetime "end_date"
@@ -34,42 +34,43 @@ ActiveRecord::Schema.define(version: 20150313211847) do
     t.integer  "leave_type_id"
   end
 
-  create_table "leave_types", force: true do |t|
-    t.string   "title"
+  create_table "leave_types", force: :cascade do |t|
+    t.string   "title",      limit: 255
     t.boolean  "paid"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "staffs", force: true do |t|
-    t.string   "first_name"
-    t.string   "middle_name"
-    t.string   "last_name"
-    t.string   "address_line_1"
-    t.string   "address_line_2"
-    t.string   "city"
-    t.string   "county"
-    t.string   "post_code"
-    t.string   "ni"
+  create_table "staffs", force: :cascade do |t|
+    t.string   "first_name",                 limit: 255
+    t.string   "middle_name",                limit: 255
+    t.string   "last_name",                  limit: 255
+    t.string   "address_line_1",             limit: 255
+    t.string   "address_line_2",             limit: 255
+    t.string   "city",                       limit: 255
+    t.string   "county",                     limit: 255
+    t.string   "post_code",                  limit: 255
+    t.string   "ni",                         limit: 255
     t.date     "dob"
     t.date     "start_date"
     t.date     "end_date"
-    t.string   "tel_number"
-    t.string   "mobile_number"
-    t.string   "next_of_kin"
-    t.string   "next_of_kin_tel"
-    t.string   "sort_code"
-    t.string   "account_number"
-    t.string   "bank"
+    t.string   "tel_number",                 limit: 255
+    t.string   "mobile_number",              limit: 255
+    t.string   "next_of_kin",                limit: 255
+    t.string   "next_of_kin_tel",            limit: 255
+    t.string   "sort_code",                  limit: 255
+    t.string   "account_number",             limit: 255
+    t.string   "bank",                       limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "staff_no"
-    t.string   "job_title"
-    t.string   "location"
-    t.string   "profile_photo_file_name"
-    t.string   "profile_photo_content_type"
+    t.string   "staff_no",                   limit: 255
+    t.string   "job_title",                  limit: 255
+    t.string   "location",                   limit: 255
+    t.string   "profile_photo_file_name",    limit: 255
+    t.string   "profile_photo_content_type", limit: 255
     t.integer  "profile_photo_file_size"
     t.datetime "profile_photo_updated_at"
+    t.string   "email"
   end
 
 end
