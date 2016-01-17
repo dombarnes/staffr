@@ -20,7 +20,7 @@
   </thead>
   <tbody>
     <% @staffs.active.each do |staff| %>
-      <tr>
+      <tr class="clickable-row" data-href="<%= staff_path(staff) %>">
         <% if staff.staff_no? %>
           <td><%= staff.staff_no %></td>
         <% else %>

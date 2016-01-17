@@ -1,5 +1,5 @@
 # README
-
+[![security](https://hakiri.io/github/dombarnes/staffr/master.svg)](https://hakiri.io/github/dombarnes/staffr/master)
 Staffr is an employee management system
 
 ## Ruby version
