@@ -6,7 +6,9 @@
 
 # Ignore bundler config.
 /.bundle
-.powrc
+/.powrc
+/.env
+/.foreman
 
 # Ignore the default SQLite database.
 /db/*.sqlite3
@@ -20,6 +22,6 @@
 .DS_Store
 *.sublime*
 
-config/initializers/secret_token.rb
-public/uploads/*
-public/assets
+/public/uploads/*
+/public/assets
+/public/system

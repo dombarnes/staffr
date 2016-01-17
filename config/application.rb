@@ -20,9 +20,12 @@ module Staffr
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
 
+    config.active_job.queue_adapter = :resque
     config.assets.paths << "#{Rails}/vendor/assets/fonts"
+    config.assets.precompile += %w( *.eot *.svg *.ttf *.woff *.woff2 )
     # Required for Heroku
     config.assets.initialize_on_precompile = false
-    config.serve_static_assets = true
+    config.serve_static_files = true
+
   end
 end

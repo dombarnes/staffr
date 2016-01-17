@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
-ruby '2.2.3'
+ruby '2.3.0'
 
-gem 'rails', '~> 4.1.13'
+gem 'rails', '~> 4.2.0'
 gem 'pg'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
@@ -12,11 +12,16 @@ gem 'jquery-rails'
 gem 'twitter-bootstrap-rails', github: 'seyhunak/twitter-bootstrap-rails'
 gem 'business_time', github: 'bokmann/business_time'
 gem 'bootstrap-datepicker-rails'
-gem 'paperclip', "~> 4.2"
+gem 'bootstrap-sass'
+gem 'autoprefixer-rails'
+gem 'paperclip', '~> 4.2'
+
+# ActiveJob
+gem 'resque'
+gem 'resque-scheduler'
 
 # For Heroku
 gem 'puma'
-# gem 'bootstrap-sass'
 
 #for later
 # gem 'cancan'
@@ -36,8 +41,10 @@ gem 'turbolinks'
 # gem 'jbuilder', '~> 1.2'
 
 group :development do
+  gem'web-console', '~> 2.0'
   gem 'rails_layout'
   gem 'quiet_assets'
+  gem 'rails-erd'
 end
 
 group :doc do
