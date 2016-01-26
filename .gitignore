@@ -10,6 +10,7 @@
 /.env
 /.foreman
 
+
 # Ignore the default SQLite database.
 /db/*.sqlite3
 /db/*.sqlite3-journal
@@ -22,6 +23,7 @@ dump.rdb
 /tmp
 .DS_Store
 *.sublime*
+dump.rdb
 
 /public/uploads/*
 /public/assets
