@@ -15,6 +15,7 @@
 /db/*.sqlite3-journal
 *.sql
 *.sql.gz
+dump.rdb
 
 # Ignore all logfiles and tempfiles.
 /log/*.log
