@@ -4,7 +4,7 @@ class CreateHolidays < ActiveRecord::Migration
       t.string :staff_id
       t.date :start_date
       t.date :end_date
-      t.string :holiday_type
+      t.string :holiday_type, null: false
 
       t.timestamps
     end

@@ -31,8 +31,6 @@ gem 'puma'
 # gem "rolify"
 # gem "factory_girl_rails", ">= 4.2.0", :group => [:development, :test]
 # gem "compass-rails", ">= 1.0.3", :group => :assets
-gem "rspec-rails", ">= 2.14.1", :group => [:development, :test]
-gem "capybara", ">= 2.0.3", :group => :test
 
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
@@ -45,21 +43,38 @@ group :development do
   gem 'rails_layout'
   gem 'quiet_assets'
   gem 'rails-erd'
+  gem "spring"
+  gem "spring-commands-rspec"
+  gem 'seed_dump'
+end
+
+group :development, :test do
+  gem "awesome_print"
+  gem "bundler-audit", require: false
+  gem "byebug"
+  gem "dotenv-rails"
+  gem "factory_girl_rails"
+  gem "pry-rails"
+  gem "rspec-rails", "~> 3.3.0"
+end
+
+group :test do
+  gem "capybara-webkit", ">= 1.2.0"
+  gem "database_cleaner"
+  gem "formulaic"
+  gem "launchy"
+  gem "shoulda-matchers", require: false
+  gem "simplecov", require: false
+  gem "timecop"
+  gem "webmock"
+end
+
+group :staging, :production do
+  gem "rails_stdout_logging"
+  gem "rack-timeout"
 end
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
 end
-
-# Use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.1.2'
-
-# Use unicorn as the app server
-# gem 'unicorn'
-
-# Use Capistrano for deployment
-# gem 'capistrano', group: :development
-
-# Use debugger
-# gem 'debugger', group: [:development, :test]

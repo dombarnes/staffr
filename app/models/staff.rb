@@ -4,13 +4,23 @@ class Staff < ActiveRecord::Base
 	# accepts_nested_attributes_for :holiday_entitlements
 
 	has_attached_file :profile_photo, :styles => { :medium => "198x198>", :thumb => "45x45>" }, :default_url => "/images/:style/default-user.png"
-  	validates_attachment_content_type :profile_photo, :content_type => /\Aimage\/.*\Z/
+  validates_attachment_content_type :profile_photo, :content_type => /\Aimage\/.*\Z/
+  
   validates_presence_of :start_date, on: :create
+	
 	validates :first_name, :last_name, :dob, :address_line_1, :post_code, :start_date, :sort_code, :account_number, on: :update, presence: { :message => "%{value} fields can't be blank" }
-	validates_uniqueness_of :ni, :on => :create, :message => "NI Number must be unique"
+	
+	validates_uniqueness_of :ni, on: :create, :message => "NI Number must be unique"
+	validates_uniqueness_of :email, on: :create, :message => "Email addresses must be unique"
+	validates_uniqueness_of :staff_no, on: :create, :message => "Staff numbers must be unique"
+	
 	validates_length_of :ni, :is => 9
 	validates_length_of :account_number, :is => 8
 	validates_length_of :sort_code, :is => 6
+
+	default_scope { order('last_name', 'first_name')}
+	scope :active, -> { where(:end_date => nil) }
+	scope :all_staff, -> { order('last_name', 'first_name')}
 
 	# convert to %w( ) https://github.com/styleguide/ruby
 	COUNTY_LIST = ["Avon", "Bedfordshire", "Berkshire", "Borders", "Buckinghamshire", 
@@ -32,8 +42,5 @@ class Staff < ActiveRecord::Base
 		[first_name, last_name].join(' ')
 	end
 
-	default_scope { order('last_name', 'first_name')}
-	scope :active, -> { where(:end_date => nil) }
-	scope :all_staff, -> { order('last_name', 'first_name')}
 
 end
