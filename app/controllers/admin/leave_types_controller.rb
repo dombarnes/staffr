@@ -45,7 +45,7 @@ class Admin::LeaveTypesController < ApplicationController
   def destroy
     @leave_type.destroy
     respond_to do |format|
-      format.html { redirect_to admin_leave_types_url }
+      format.html { redirect_to admin_leave_types_path, notice: 'Leave Type was successfully updated.' }
       format.json { head :no_content }
     end
   end
